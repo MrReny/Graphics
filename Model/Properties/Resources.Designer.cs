@@ -45,7 +45,7 @@ namespace Graphics.Properties
                 if ((resourceMan == null))
                 {
                     global::System.Resources.ResourceManager temp =
-                        new global::System.Resources.ResourceManager("Graphics.Properties.Resources",
+                        new global::System.Resources.ResourceManager("Model.Properties.Resources",
                             typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
