@@ -226,24 +226,6 @@ namespace Graphics
             var angle1 = -90 * Math.PI/180;
             var angle2 = -90 * Math.PI/180;
             
-            // вращение по Z
-            //gl.MultMatrix(new double[]{Math.Cos(-45),Math.Sin(-45),0,0,
-            //                              -Math.Sin(-45),Math.Cos(-45),0,0,
-            //                              0,0,1,0,
-            //                              0,0,0,1 });
-            //
-            // вращение по X
-            //gl.MultMatrix(new double[]{1,0,0,0,
-            //                              0,Math.Cos(angle1),Math.Sin(angle1),0,
-            //                              0,-Math.Sin(angle1),Math.Cos(angle1),0,
-            //                              0,0,0,1 });
-            
-            // вращение по Y
-            //gl.MultMatrix(new double[]{Math.Cos(angle1),0,-Math.Sin(angle1),0,
-            //                               0,1,0,0,
-            //                               Math.Sin(angle1),0,Math.Cos(angle1),0,
-            //                               0,0,0,1 });
-            
             angle1 = -45 * Math.PI/180;
             angle2 = 35.26 * Math.PI/180;
             // Изометрия
@@ -380,14 +362,15 @@ namespace Graphics
         {
             Button b = (Button) sender;
 
-            b.Width = (double) RootGrid.Parent.GetValue(WidthProperty) / 3 - 5;
-            b.Height = RootGrid.RowDefinitions[1].ActualHeight / 2;
+            b.Width = (double) RootGrid.Parent.GetValue(WidthProperty) / 3 - 20;
+            b.Height = RootGrid.RowDefinitions[1].ActualHeight / 3 - 4;
         }
 
         private void RootGrid_OnSizeChanged(object sender, SizeChangedEventArgs e)
         {
             FrameworkElement_OnSizeChanged(ButtonPanel,e);
             FrameworkElement_OnSizeChanged(ButtonPanel2,e);
+            FrameworkElement_OnSizeChanged(ButtonPanel3,e);
         }
 
         private void FrameworkElement_OnSizeChanged(object sender, SizeChangedEventArgs e)
