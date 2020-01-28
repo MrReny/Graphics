@@ -28,14 +28,20 @@ namespace Graphics
     public partial class MainWindow
     {
         
-        private readonly double[,] _figureCoords= new double[6,3] {{  0,  0,  0},
-                                                          {  0,  0,1.2},
-                                                          {1.2,  0,  0},
-                                                          {  0,0.7,  0},
-                                                          {0.6,0.7,  0},
-                                                          {  0,0.7,0.6}};
+        private readonly double[,] _figureCoords= new double[8,3] {{  0,  0,  0},
+                                                                   {  0,  0,1.2},
+                                                                   {1.2,  0,0.6},
+                                                                   {1.2,  0,  0},
+                                                                   {0.6,  1,  0},
+                                                                   {  0,  1,  0},
+                                                                   {  0,  1,0.6},
+                                                                   {0.6,  1,0.3}
+        };
         
-        private readonly int[,] _paths = new int[9,2]{{0,1},{0,2},{1,2},{0,3},{3,4},{3,5},{4,5},{1,5},{2,4}};
+        private readonly int[,] _paths = new int[12,2]{{0,1},{3,2},{1,2},
+                                                       {0,3},{3,4},{4,5},
+                                                       {5,6},{0,5},{2,7},
+                                                       {6,7},{1,6},{4,7}};
         
         private readonly float[][] _colors = new float[][] {
                                     new float[]{1.0f,00,00},
@@ -87,8 +93,8 @@ namespace Graphics
                 gl.Vertex(-10,1,-0.1);
                 gl.Vertex( 10,1,-0.1);
                 gl.Color(0,1f,0);
-                gl.Vertex(-10,-0,0.9+_pX*0.7);
-                gl.Vertex( 10,-0,0.9-_pX*0.7);
+                gl.Vertex(-10,-0,1.1+_pX*0.7);
+                gl.Vertex( 10,-0,1.1-_pX*0.7);
             
                 gl.End();
             }
@@ -116,9 +122,9 @@ namespace Graphics
                 // Включаю скглаживание
                 gl.Enable(OpenGL.GL_LINE_SMOOTH);
                 // Установка пределов толщины линии
-                gl.GetFloat(OpenGL.GL_ALIASED_LINE_WIDTH_RANGE,new float[]{0.0f,5.0f});
+                gl.GetFloat(OpenGL.GL_ALIASED_LINE_WIDTH_RANGE,new float[]{0.0f,2.0f});
                 // Установка толщины линии
-                gl.LineWidth(5f);
+                gl.LineWidth(2f);
             
                 gl.Begin(OpenGL.GL_LINES);
                 
@@ -144,10 +150,10 @@ namespace Graphics
             
             // Применяем колхоз, поскольку система координат opengl не совпадает с нашей(по просту меняем Y и Z местами)
             
-            for (var i = 0; i < 9; i++)
+            for (var i = 0; i < 12; i++)
             {
                 //gl.Color(_colors[i]);
-                gl.Color(0,0,1f);
+                gl.Color(0,0.5f,0.5f);
                 
                 gl.Vertex(_figureCoords[_paths[i,0],0],
                           _figureCoords[_paths[i,0],2],

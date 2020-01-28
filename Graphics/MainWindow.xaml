@@ -6,7 +6,7 @@
         xmlns:sharpGL="clr-namespace:SharpGL.WPF;assembly=SharpGL.WPF"
         xmlns:local="clr-namespace:Graphics"
         mc:Ignorable="d"
-        Title="MainWindow" Width="800" Height="600" ResizeMode="NoResize">
+        Title="Model" Width="800" Height="600" ResizeMode="NoResize">
     
     <Grid Name="RootGrid" MinHeight="60" SizeChanged="RootGrid_OnSizeChanged">
         
@@ -37,7 +37,7 @@
         </StackPanel>
         <StackPanel Name="ButtonPanel3" Grid.Row="1" Grid.Column="1" SizeChanged="FrameworkElement_OnSizeChanged" >
             <Button Name="Button6" MinHeight="30" Click="Button6_OnClick" Content="Перспектива" Loaded="Button_Resize" ></Button>
-            <Slider Value="0" Minimum="-1" Maximum="1" SelectionStart="0" Height="30" 
+            <Slider Value="0" Minimum="-0.5" Maximum="0.5" SelectionStart="0" Height="30" 
                     IsSelectionRangeEnabled="True" ValueChanged="Slider_ValueChanged" 
                     />
         </StackPanel>
